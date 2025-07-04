@@ -32,13 +32,16 @@ namespace Aubio.Interop.Win32
         ///     The platform is not supported.
         /// </exception>
         [SuppressMessage("ReSharper", "SwitchStatementMissingSomeCases")]
-        public NativeLibraryLoader(string path32, string path64)
+        public NativeLibraryLoader(string path32, string path64, string patha64)
         {
             if (!File.Exists(path32))
                 throw new FileNotFoundException("32-bit library not found.", path32);
 
             if (!File.Exists(path64))
                 throw new FileNotFoundException("64-bit library not found.", path64);
+
+            if (!File.Exists(patha64))
+                throw new FileNotFoundException("ARM 64-bit library not found.", patha64);
 
             string path;
 
@@ -50,6 +53,10 @@ namespace Aubio.Interop.Win32
                 case Architecture.X64:
                     path = path64;
                     break;
+                case Architecture.Arm64:
+                    path = patharm64;
+                    break;
+
                 default:
                     throw new PlatformNotSupportedException();
             }

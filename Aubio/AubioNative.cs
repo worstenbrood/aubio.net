@@ -12,7 +12,8 @@ namespace Aubio
 
         public AubioNative(
             [NotNull] string path32 = @"x86\" + NativeMethods.DllName,
-            [NotNull] string path64 = @"x64\" + NativeMethods.DllName)
+            [NotNull] string path64 = @"x64\" + NativeMethods.DllName,
+            [NotNull] string patha64 = @"arm64\" + NativeMethods.DllName)
         {
             if (path32 == null)
                 throw new ArgumentNullException(nameof(path32));
@@ -20,7 +21,10 @@ namespace Aubio
             if (path64 == null)
                 throw new ArgumentNullException(nameof(path64));
 
-            _loader = new NativeLibraryLoader(path32, path64);
+            if (path64 == null)
+                throw new ArgumentNullException(nameof(patha64));
+             
+            _loader = new NativeLibraryLoader(path32, path64, patha64);
         }
 
         protected override void DisposeManaged()

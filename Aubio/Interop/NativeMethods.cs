@@ -9,7 +9,7 @@ namespace Aubio.Interop
     internal static class NativeMethods
     {
         [PublicAPI]
-        public const string DllName = "libaubio-6.dll";
+        public const string DllName = "libaubio-5.dll";
 
         private const CallingConvention Convention = CallingConvention.Cdecl;
 
