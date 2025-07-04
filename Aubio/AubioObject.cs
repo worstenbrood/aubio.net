@@ -12,7 +12,7 @@ namespace Aubio
             Handle = handle;
         }
 
-        private IntPtr Handle { get; }
+        public IntPtr Handle { get; }
 
         public static implicit operator IntPtr([NotNull] AubioObject o)
         {

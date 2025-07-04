@@ -26,7 +26,7 @@ namespace Aubio.NET.Collections
             if (managedObj == null)
                 throw new ArgumentNullException(nameof(managedObj));
 
-            return ((FVec)managedObj).ToPointer();
+            return ((Aubio.FVec)managedObj).Handle;
         }
 
         public unsafe object MarshalNativeToManaged(IntPtr pNativeData)
