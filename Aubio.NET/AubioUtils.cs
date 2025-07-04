@@ -1,4 +1,5 @@
-﻿using System.Runtime.InteropServices;
+﻿using Aubio.Interop;
+using System.Runtime.InteropServices;
 
 namespace Aubio.NET
 {
@@ -9,7 +10,7 @@ namespace Aubio.NET
             aubio_cleanup();
         }
 
-        [DllImport("aubio", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(NativeMethods.DllName, CallingConvention = CallingConvention.Cdecl)]
         private static extern void aubio_cleanup();
     }
 }

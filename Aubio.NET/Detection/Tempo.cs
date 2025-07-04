@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Runtime.InteropServices;
+using Aubio.Interop;
 using Aubio.NET.Collections;
 using JetBrains.Annotations;
 
@@ -183,76 +184,76 @@ namespace Aubio.NET.Detection
 
         #region Native methods
 
-        [DllImport("aubio", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(NativeMethods.DllName, CallingConvention = CallingConvention.Cdecl)]
         private static extern void aubio_tempo_do(
             [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(TempoMarshaler))] Tempo instance,
             [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(FVecMarshaler))] FVec input,
             [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(FVecMarshaler))] FVec output);
 
-        [DllImport("aubio", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(NativeMethods.DllName, CallingConvention = CallingConvention.Cdecl)]
         private static extern float aubio_tempo_get_bpm(
             [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(TempoMarshaler))] Tempo instance);
 
-        [DllImport("aubio", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(NativeMethods.DllName, CallingConvention = CallingConvention.Cdecl)]
         private static extern float aubio_tempo_get_confidence(
             [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(TempoMarshaler))] Tempo instance);
 
-        [DllImport("aubio", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(NativeMethods.DllName, CallingConvention = CallingConvention.Cdecl)]
         private static extern int aubio_tempo_get_delay(
             [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(TempoMarshaler))] Tempo instance);
 
-        [DllImport("aubio", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(NativeMethods.DllName, CallingConvention = CallingConvention.Cdecl)]
         private static extern uint aubio_tempo_get_last(
             [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(TempoMarshaler))] Tempo instance);
 
-        [DllImport("aubio", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(NativeMethods.DllName, CallingConvention = CallingConvention.Cdecl)]
         private static extern float aubio_tempo_get_last_tatum(
             [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(TempoMarshaler))] Tempo instance);
 
-        [DllImport("aubio", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(NativeMethods.DllName, CallingConvention = CallingConvention.Cdecl)]
         private static extern float aubio_tempo_get_period(
             [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(TempoMarshaler))] Tempo instance);
 
-        [DllImport("aubio", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(NativeMethods.DllName, CallingConvention = CallingConvention.Cdecl)]
         private static extern float aubio_tempo_get_silence(
             [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(TempoMarshaler))] Tempo instance);
 
-        [DllImport("aubio", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(NativeMethods.DllName, CallingConvention = CallingConvention.Cdecl)]
         private static extern float aubio_tempo_get_threshold(
             [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(TempoMarshaler))] Tempo instance);
 
-        [DllImport("aubio", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(NativeMethods.DllName, CallingConvention = CallingConvention.Cdecl)]
         private static extern bool aubio_tempo_set_delay(
             [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(TempoMarshaler))] Tempo instance,
             int delay);
 
-        [DllImport("aubio", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(NativeMethods.DllName, CallingConvention = CallingConvention.Cdecl)]
         [return: MarshalAs(UnmanagedType.Bool)]
         private static extern bool aubio_tempo_set_tatum_signature(
             [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(TempoMarshaler))] Tempo instance,
             uint signature);
 
-        [DllImport("aubio", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(NativeMethods.DllName, CallingConvention = CallingConvention.Cdecl)]
         [return: MarshalAs(UnmanagedType.Bool)]
         private static extern bool aubio_tempo_set_silence(
             [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(TempoMarshaler))] Tempo instance,
             float silence);
 
-        [DllImport("aubio", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(NativeMethods.DllName, CallingConvention = CallingConvention.Cdecl)]
         [return: MarshalAs(UnmanagedType.Bool)]
         private static extern bool aubio_tempo_set_threshold(
             [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(TempoMarshaler))] Tempo instance,
             float threshold);
 
-        [DllImport("aubio", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(NativeMethods.DllName, CallingConvention = CallingConvention.Cdecl)]
         private static extern TempoTatum aubio_tempo_was_tatum(
             [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(TempoMarshaler))] Tempo instance);
 
-        [DllImport("aubio", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(NativeMethods.DllName, CallingConvention = CallingConvention.Cdecl)]
         private static extern void del_aubio_tempo(
             [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(TempoMarshaler))] Tempo instance);
 
-        [DllImport("aubio", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(NativeMethods.DllName, CallingConvention = CallingConvention.Cdecl)]
         //[return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(TempoMarshaler))]
         private static extern unsafe Tempo__* new_aubio_tempo(
             [MarshalAs(UnmanagedType.LPStr)] string method,

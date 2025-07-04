@@ -19,10 +19,10 @@ namespace Aubio.NET.TestTempo
 
             const int winSize = 1024;
             const int hopSize = winSize / 4;
-
+            
             using (var source = new Source(uri, 0, hopSize))
             using (var input = new FVec(hopSize))
-            using (var output = new FVec(1))
+            using (var output = new Aubio.FVec(1))
             using (var tempo = new Tempo("default", winSize, hopSize, source.SampleRate))
             {
                 var frames = 0;

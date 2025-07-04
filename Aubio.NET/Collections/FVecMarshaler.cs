@@ -4,7 +4,7 @@ using JetBrains.Annotations;
 
 namespace Aubio.NET.Collections
 {
-    internal   class FVecMarshaler : ICustomMarshaler
+    internal class FVecMarshaler : ICustomMarshaler
     {
         private static readonly FVecMarshaler Instance = new FVecMarshaler();
 

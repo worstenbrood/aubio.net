@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Runtime.InteropServices;
+using Aubio.Interop;
 using Aubio.NET.Collections;
 using JetBrains.Annotations;
 
@@ -108,13 +109,20 @@ namespace Aubio.NET.IO
 
         #region Native methods
 
-        [DllImport("aubio", CallingConvention = CallingConvention.Cdecl)]
+        public static readonly AubioNative AubioNative;
+
+        static Source()
+        {
+            AubioNative = AubioNative.Instance;
+        }
+
+        [DllImport(NativeMethods.DllName, CallingConvention = CallingConvention.Cdecl)]
         [return: MarshalAs(UnmanagedType.Bool)]
         private static extern bool aubio_source_close(
             [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(SourceMarshaler))] Source instance
         );
 
-        [DllImport("aubio", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(NativeMethods.DllName, CallingConvention = CallingConvention.Cdecl)]
         private static extern void aubio_source_do(
             [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(SourceMarshaler))] Source instance,
             [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(FVecMarshaler))] FVec readTo,
@@ -123,41 +131,41 @@ namespace Aubio.NET.IO
 
         //TODO
         //void aubio_source_do_multi(aubio_source_t* s, fmat_t* read_to, uint_t* read)
-        //[DllImport("aubio", CallingConvention = CallingConvention.Cdecl)]
+        //[DllImport(NativeMethods.DllName, CallingConvention = CallingConvention.Cdecl)]
         // static extern void aubio_source_do_multi(
         //    [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(SourceMarshaler))] Source instance,
         //);
 
-        [DllImport("aubio", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(NativeMethods.DllName, CallingConvention = CallingConvention.Cdecl)]
         private static extern uint aubio_source_get_channels(
             [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(SourceMarshaler))] Source instance
         );
 
-        [DllImport("aubio", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(NativeMethods.DllName, CallingConvention = CallingConvention.Cdecl)]
         private static extern uint aubio_source_get_duration(
             [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(SourceMarshaler))] Source instance
         );
 
-        [DllImport("aubio", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(NativeMethods.DllName, CallingConvention = CallingConvention.Cdecl)]
         private static extern uint aubio_source_get_samplerate(
             [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(SourceMarshaler))] Source instance
         );
 
-        [DllImport("aubio", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(NativeMethods.DllName, CallingConvention = CallingConvention.Cdecl)]
         [return: MarshalAs(UnmanagedType.Bool)]
         private static extern bool aubio_source_seek(
             [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(SourceMarshaler))] Source instance,
             uint position
         );
 
-        [DllImport("aubio", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(NativeMethods.DllName, CallingConvention = CallingConvention.Cdecl)]
         //[return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(SourceMarshaler))]
         private static extern unsafe Source__* new_aubio_source(
             [MarshalAs(UnmanagedType.LPStr)] string uri,
             uint sampleRate,
             uint hopSize);
 
-        [DllImport("aubio", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(NativeMethods.DllName, CallingConvention = CallingConvention.Cdecl)]
         private static extern void del_aubio_source(
             [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(SourceMarshaler))] Source instance
         );

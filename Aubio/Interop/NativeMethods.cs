@@ -6,8 +6,15 @@ using JetBrains.Annotations;
 
 namespace Aubio.Interop
 {
-    internal static class NativeMethods
+    public static class NativeMethods
     {
+        public static readonly AubioNative AubioNative;
+
+        static NativeMethods()
+        {
+            AubioNative = AubioNative.Instance;
+        }
+
         [PublicAPI]
         public const string DllName = "libaubio-5.dll";
 

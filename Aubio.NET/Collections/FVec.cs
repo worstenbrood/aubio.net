@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Security;
+using Aubio.Interop;
 using JetBrains.Annotations;
 
 namespace Aubio.NET.Collections
@@ -143,75 +144,75 @@ namespace Aubio.NET.Collections
         #region Native methods
 
         [SuppressUnmanagedCodeSecurity]
-        [DllImport("aubio", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(NativeMethods.DllName, CallingConvention = CallingConvention.Cdecl)]
         private static extern void fvec_copy(
             [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(FVecMarshaler))] FVec instance,
             [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(FVecMarshaler))] FVec target);
 
         [SuppressUnmanagedCodeSecurity]
-        [DllImport("aubio", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(NativeMethods.DllName, CallingConvention = CallingConvention.Cdecl)]
         private static extern unsafe float* fvec_get_data(
             [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(FVecMarshaler))] FVec instance);
 
         [SuppressUnmanagedCodeSecurity]
-        [DllImport("aubio", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(NativeMethods.DllName, CallingConvention = CallingConvention.Cdecl)]
         private static extern float fvec_get_sample(
             [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(FVecMarshaler))] FVec instance,
             uint position);
 
         [SuppressUnmanagedCodeSecurity]
-        [DllImport("aubio", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(NativeMethods.DllName, CallingConvention = CallingConvention.Cdecl)]
         private static extern void fvec_ones(
             [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(FVecMarshaler))] FVec instance);
 
         [SuppressUnmanagedCodeSecurity]
-        [DllImport("aubio", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(NativeMethods.DllName, CallingConvention = CallingConvention.Cdecl)]
         private static extern void fvec_print(
             [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(FVecMarshaler))] FVec instance);
 
         [SuppressUnmanagedCodeSecurity]
-        [DllImport("aubio", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(NativeMethods.DllName, CallingConvention = CallingConvention.Cdecl)]
         private static extern void fvec_rev(
             [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(FVecMarshaler))] FVec instance);
 
         [SuppressUnmanagedCodeSecurity]
-        [DllImport("aubio", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(NativeMethods.DllName, CallingConvention = CallingConvention.Cdecl)]
         private static extern void fvec_set_all(
             [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(FVecMarshaler))] FVec instance,
             float value);
 
         [SuppressUnmanagedCodeSecurity]
-        [DllImport("aubio", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(NativeMethods.DllName, CallingConvention = CallingConvention.Cdecl)]
         private static extern void fvec_set_sample(
             [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(FVecMarshaler))] FVec instance,
             float value,
             uint position);
 
         [SuppressUnmanagedCodeSecurity]
-        [DllImport("aubio", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(NativeMethods.DllName, CallingConvention = CallingConvention.Cdecl)]
         private static extern void fvec_weight(
             [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(FVecMarshaler))] FVec instance,
             [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(FVecMarshaler))] FVec weight);
 
         [SuppressUnmanagedCodeSecurity]
-        [DllImport("aubio", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(NativeMethods.DllName, CallingConvention = CallingConvention.Cdecl)]
         private static extern void fvec_weighted_copy(
             [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(FVecMarshaler))] FVec instance,
             [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(FVecMarshaler))] FVec weight,
             [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(FVecMarshaler))] FVec output);
 
         [SuppressUnmanagedCodeSecurity]
-        [DllImport("aubio", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(NativeMethods.DllName, CallingConvention = CallingConvention.Cdecl)]
         private static extern void fvec_zeros(
             [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(FVecMarshaler))] FVec instance);
 
         [SuppressUnmanagedCodeSecurity]
-        [DllImport("aubio", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(NativeMethods.DllName, CallingConvention = CallingConvention.Cdecl)]
         private static extern void del_fvec(
             [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(FVecMarshaler))] FVec instance);
 
         [SuppressUnmanagedCodeSecurity]
-        [DllImport("aubio", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(NativeMethods.DllName, CallingConvention = CallingConvention.Cdecl)]
         //[return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(FVecMarshaler))]
         private static extern unsafe FVec__* new_fvec(uint length);
 

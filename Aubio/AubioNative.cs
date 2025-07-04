@@ -23,7 +23,7 @@ namespace Aubio
 
             if (path64 == null)
                 throw new ArgumentNullException(nameof(patha64));
-             
+
             _loader = new NativeLibraryLoader(path32, path64, patha64);
         }
 
@@ -31,5 +31,18 @@ namespace Aubio
         {
             _loader.Dispose();
         }
+
+        // Singleton
+
+        private static readonly Lazy<AubioNative> _instance = new Lazy<AubioNative>(() => new AubioNative());
+
+        public static AubioNative Instance
+        {
+            get 
+            {
+                return _instance.Value;
+            }
+        }
+
     }
 }

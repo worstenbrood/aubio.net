@@ -10,6 +10,13 @@ namespace Aubio.IO
     /// </summary>
     public sealed class Source : AubioObject
     {
+        public static readonly AubioNative AubioNative;
+
+        static Source()
+        {
+            //AubioNative = new AubioNative();
+        }
+
         public Source(int sampleRate, int hopSize)
             : base(Create(sampleRate, hopSize))
         {
