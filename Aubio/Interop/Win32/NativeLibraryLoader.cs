@@ -54,7 +54,7 @@ namespace Aubio.Interop.Win32
                     path = path64;
                     break;
                 case Architecture.Arm64:
-                    path = patharm64;
+                    path = patha64;
                     break;
 
                 default:
