@@ -89,6 +89,10 @@
       <Project>{4f5beedc-0dc4-407e-a84a-90759110247a}</Project>
       <Name>Aubio.NET</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Aubio\Aubio.csproj">
+      <Project>{65ab34dd-adbb-408f-acfe-89bff2259822}</Project>
+      <Name>Aubio</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

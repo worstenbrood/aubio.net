@@ -1,6 +1,5 @@
 ﻿using System;
 using System.IO;
-using Aubio.NET.Collections;
 using Aubio.NET.Detection;
 using Aubio.NET.IO;
 
