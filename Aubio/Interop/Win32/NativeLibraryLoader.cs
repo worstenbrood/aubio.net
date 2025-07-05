@@ -63,12 +63,10 @@ namespace Aubio.Interop.Win32
             NativeLibraryHandle handle;
 
             var description = RuntimeInformation.FrameworkDescription;
-            if (description.StartsWith(".NET Framework"))
-                handle = NativeMethods.LoadLibrary(path);
-            else if (description.StartsWith(".NET Core"))
+            if (description.StartsWith(".NET Core"))
                 handle = NativeMethods.LoadPackagedLibrary(path);
             else
-                throw new PlatformNotSupportedException();
+                handle = NativeMethods.LoadLibrary(path);
 
             if (handle.IsInvalid)
                 throw new InvalidOperationException("Library could not be loaded.", new Win32Exception());
