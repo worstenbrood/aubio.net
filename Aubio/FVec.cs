@@ -19,6 +19,24 @@ namespace Aubio
             Length = length;
         }
 
+        public void CopyFrom(float[] buffer, int index, int count)
+        {
+            if (count > Length)
+            {
+                throw new ArgumentException(nameof(count));
+            }
+
+            if (count > buffer.Length - index)
+            {
+                throw new ArgumentException(nameof(count));
+            }
+
+            for (int i = 0; i < count; i++)
+            {
+                this[i] = buffer[index + i];
+            }
+        }
+
         [PublicAPI]
         public int Length { get; }
 
