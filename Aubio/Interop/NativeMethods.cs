@@ -94,7 +94,6 @@ namespace Aubio.Interop
 
         #endregion
 
-
         #region fft
 
         [DllImport(DllName, CallingConvention = Convention)]
@@ -931,6 +930,9 @@ namespace Aubio.Interop
         #endregion
 
         #region MusicUtils
+
+        [DllImport(DllName, CallingConvention = Convention)]
+        public static extern float aubio_freqtomidi(float freq); 
 
         [DllImport(DllName, CallingConvention = Convention)]
         public static extern void aubio_cleanup();
