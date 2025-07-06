@@ -4,19 +4,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <Platforms>AnyCPU;x64;x86</Platforms>
   </PropertyGroup>
-
-  <ItemGroup>
-    <Compile Remove="Vectors\**" />
-    <EmbeddedResource Remove="Vectors\**" />
-    <None Remove="Vectors\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Remove="arm64\libaubio-5.dll" />
-    <None Remove="x64\libaubio-5.dll" />
-    <None Remove="x86\libaubio-5.dll" />
-  </ItemGroup>
-
+  
   <ItemGroup>
     <Content Include="arm64\libaubio-5.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
