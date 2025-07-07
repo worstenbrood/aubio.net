@@ -6,13 +6,17 @@ namespace Aubio
 {
     public abstract class AubioObject : Disposable
     {
+        protected AubioObject()
+        {
+        }
+
         protected AubioObject(IntPtr handle, bool isDisposable = true)
             : base(isDisposable)
         {
             Handle = handle;
         }
 
-        public IntPtr Handle { get; }
+        public IntPtr Handle { get; protected set; }
 
         public static implicit operator IntPtr([NotNull] AubioObject o)
         {

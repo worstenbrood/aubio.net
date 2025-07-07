@@ -1,18 +1,23 @@
+using Aubio.Extensions;
+using Aubio.Interop;
+using JetBrains.Annotations;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
-using Aubio.Extensions;
-using Aubio.Interop;
-using JetBrains.Annotations;
 
 namespace Aubio
 {
     public class FVec : AubioObject, IReadOnlyList<float>
     {
-        protected FVec(IntPtr handle) : base(handle)
-        {
+        protected FVec() 
+        { 
+            // Set Handle and Length manually
         }
+
+        protected FVec(IntPtr handle) : base(handle)
+        { 
+        }      
 
         public FVec(int length) : base(Create(length))
         {
@@ -38,7 +43,7 @@ namespace Aubio
         }
 
         [PublicAPI]
-        public int Length { get; }
+        public int Length { get; protected set; }
 
         private static IntPtr Create(int length)
         {
@@ -49,7 +54,7 @@ namespace Aubio
 
             return handle;
         }
-
+              
         protected override void DisposeNative()
         {
             ThrowIfDisposed();
