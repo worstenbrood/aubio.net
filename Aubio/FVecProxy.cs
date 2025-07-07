@@ -5,7 +5,7 @@ namespace Aubio
 {
     public class FVecProxy<T> : FVec
     {
-        internal struct FVec__
+        internal readonly struct FVec__
         {
             public readonly uint Length;
             public readonly IntPtr Data;
@@ -66,9 +66,12 @@ namespace Aubio
 
     public class FVecProxy : FVecProxy<float>
     {
+        public FVecProxy(float[] data,  int length) : base(data, length)
+        {
+        }
+
         public FVecProxy(int length) : base(length)
         {
         }
     }
-
 }
